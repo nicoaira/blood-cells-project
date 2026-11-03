@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blood Cell Detector</title>
+  <meta name="description" content="Training progress, model performance and dataset overview for a YOLO26 blood-cell detector fine-tuned on TXL-PBC.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='%23eb6834'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%23fcfcfb'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    try {
+      const t = new URLSearchParams(location.search).get("theme") || localStorage.getItem("bc-theme");
+      if (t === "light" || t === "dark") document.documentElement.dataset.theme = t;
+    } catch (e) {}
+  </script>
+</head>
+<body>
+  <div class="shell">
+    <header class="top">
+      <div class="brand">
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+          <circle cx="12" cy="13" r="9" fill="var(--c-rbc)"></circle>
+          <circle cx="12" cy="13" r="3.6" fill="var(--surface)"></circle>
+          <circle cx="23" cy="22" r="7" fill="var(--c-wbc)"></circle>
+          <circle cx="25" cy="8" r="2.6" fill="var(--c-plt)"></circle>
+        </svg>
+        <div>
+          <h1>Blood cell detector</h1>
+          <p id="subtitle">YOLO26 fine-tuned on TXL-PBC blood smears</p>
+        </div>
+      </div>
+      <div class="top-actions">
+        <span id="status-pill" class="status-pill" data-tone="neutral"><span class="dot"></span><span>Loading</span></span>
+        <span id="updated" class="updated"></span>
+        <a id="kaggle-link" class="btn" target="_blank" rel="noopener" hidden>Kaggle run</a>
+        <button id="theme-btn" class="btn" type="button" title="Color theme">Theme: auto</button>
+      </div>
+    </header>
+    <nav class="tabs" role="tablist" aria-label="Dashboard sections">
+      <button role="tab" type="button" data-tab="training">Training</button>
+      <button role="tab" type="button" data-tab="performance">Performance</button>
+      <button role="tab" type="button" data-tab="dataset">Dataset</button>
+    </nav>
+    <main id="view" class="view"></main>
+    <div id="live-region" class="visually-hidden" aria-live="polite" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)"></div>
+    <footer>
+      Data files in <code>dashboard/data/</code> are written by <code>scripts/monitor.py</code> (live run),
+      <code>scripts/build_reports.py</code> (evaluation) and <code>scripts/analyze_dataset.py</code> (dataset).
+      The page reloads them every few seconds and also works when opened straight from disk.
+    </footer>
+  </div>
+  <div id="tooltip" class="tooltip"></div>
+  <script src="app.js"></script>
+</body>
+</html>

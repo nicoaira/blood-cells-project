@@ -1,0 +1,3 @@
+# Optional: local inference (scripts/predict.py) and the CPU smoke test (make smoke).
+# Install PyTorch first (CPU wheels: --index-url https://download.pytorch.org/whl/cpu), or a CUDA build for a local GPU.
+ultralytics==8.4.198

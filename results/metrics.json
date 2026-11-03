@@ -1,0 +1,366 @@
+{
+  "run": {
+    "kernel": "nicolasaira/blood-cells-yolo26-training",
+    "version": 4,
+    "url": "https://www.kaggle.com/code/nicolasaira/blood-cells-yolo26-training",
+    "dataset": "nicolasaira/txl-pbc-blood-cells",
+    "accelerator": "NvidiaTeslaT4",
+    "pushed_at": "2026-11-02T20:51:43+00:00",
+    "run_name": "yolo26m-txlpbc"
+  },
+  "model": "yolo26m.pt",
+  "best_epoch": 97,
+  "epochs_completed": 100,
+  "train_time_s": 3101.7,
+  "environment": {
+    "python": "3.13.15",
+    "platform": "Linux-6.18.55+-x86_64-with-glibc2.39",
+    "torch": "2.11.0+cu128",
+    "ultralytics": "8.4.198",
+    "cuda_available": true,
+    "cpu_count": 4,
+    "cuda": "12.8",
+    "gpu": "Tesla T4",
+    "gpu_count": 2,
+    "gpu_mem_gb": 15.6
+  },
+  "metrics": {
+    "val": {
+      "precision": 0.9813021756101233,
+      "recall": 0.9576692283519875,
+      "mAP50": 0.990850651837715,
+      "mAP75": 0.9653644028786378,
+      "mAP50-95": 0.8739429548366158,
+      "fitness": 0.8739429548366158
+    },
+    "test": {
+      "precision": 0.9745719755597352,
+      "recall": 0.9758528772128491,
+      "mAP50": 0.9929366442074269,
+      "mAP75": 0.963925236827191,
+      "mAP50-95": 0.8785449415686396,
+      "fitness": 0.8785449415686396
+    },
+    "test_nms_free": {
+      "precision": 0.9649584385838113,
+      "recall": 0.976180206464151,
+      "mAP50": 0.9913497410394103,
+      "mAP75": 0.9742865963585983,
+      "mAP50-95": 0.8776092589549113,
+      "fitness": 0.8776092589549113
+    }
+  },
+  "per_class": {
+    "val": [
+      {
+        "class": "WBC",
+        "images": 250,
+        "instances": 257,
+        "precision": 0.99257,
+        "recall": 0.99222,
+        "f1": 0.99239,
+        "mAP50": 0.99402,
+        "mAP75": 0.99402,
+        "mAP50-95": 0.90815
+      },
+      {
+        "class": "RBC",
+        "images": 252,
+        "instances": 3368,
+        "precision": 0.97481,
+        "recall": 0.94329,
+        "f1": 0.95879,
+        "mAP50": 0.99038,
+        "mAP75": 0.96594,
+        "mAP50-95": 0.90809
+      },
+      {
+        "class": "Platelets",
+        "images": 64,
+        "instances": 112,
+        "precision": 0.97653,
+        "recall": 0.9375,
+        "f1": 0.95662,
+        "mAP50": 0.98815,
+        "mAP75": 0.93613,
+        "mAP50-95": 0.80559
+      }
+    ],
+    "test": [
+      {
+        "class": "WBC",
+        "images": 126,
+        "instances": 131,
+        "precision": 0.99493,
+        "recall": 1.0,
+        "f1": 0.99746,
+        "mAP50": 0.995,
+        "mAP75": 0.995,
+        "mAP50-95": 0.89683
+      },
+      {
+        "class": "RBC",
+        "images": 126,
+        "instances": 1688,
+        "precision": 0.97502,
+        "recall": 0.94797,
+        "f1": 0.9613,
+        "mAP50": 0.99112,
+        "mAP75": 0.96638,
+        "mAP50-95": 0.90986
+      },
+      {
+        "class": "Platelets",
+        "images": 34,
+        "instances": 49,
+        "precision": 0.95377,
+        "recall": 0.97959,
+        "f1": 0.96651,
+        "mAP50": 0.99269,
+        "mAP75": 0.9304,
+        "mAP50-95": 0.82895
+      }
+    ],
+    "test_nms_free": [
+      {
+        "class": "WBC",
+        "images": 126,
+        "instances": 131,
+        "precision": 1.0,
+        "recall": 0.99449,
+        "f1": 0.99724,
+        "mAP50": 0.995,
+        "mAP75": 0.99401,
+        "mAP50-95": 0.88846
+      },
+      {
+        "class": "RBC",
+        "images": 126,
+        "instances": 1688,
+        "precision": 0.95836,
+        "recall": 0.95446,
+        "f1": 0.95641,
+        "mAP50": 0.98914,
+        "mAP75": 0.96354,
+        "mAP50-95": 0.9061
+      },
+      {
+        "class": "Platelets",
+        "images": 34,
+        "instances": 49,
+        "precision": 0.93651,
+        "recall": 0.97959,
+        "f1": 0.95757,
+        "mAP50": 0.9899,
+        "mAP75": 0.96531,
+        "mAP50-95": 0.83826
+      }
+    ]
+  },
+  "operating_point": {
+    "val": {
+      "conf": 0.6286,
+      "iou": 0.5,
+      "per_class": [
+        {
+          "class": "WBC",
+          "tp": 255,
+          "fp": 1,
+          "fn": 2,
+          "precision": 0.99609375,
+          "recall": 0.9922178988326849,
+          "f1": 0.9941520467836258
+        },
+        {
+          "class": "RBC",
+          "tp": 3178,
+          "fp": 79,
+          "fn": 190,
+          "precision": 0.9757445501995702,
+          "recall": 0.9435866983372921,
+          "f1": 0.9593962264150944
+        },
+        {
+          "class": "Platelets",
+          "tp": 105,
+          "fp": 2,
+          "fn": 7,
+          "precision": 0.9813084112149533,
+          "recall": 0.9375,
+          "f1": 0.958904109589041
+        }
+      ],
+      "counting": [
+        {
+          "class": "WBC",
+          "true_total": 257,
+          "pred_total": 256,
+          "mae": 0.011904761904761904,
+          "bias": -0.003968253968253968,
+          "exact": 0.9880952380952381,
+          "within_1": 1.0,
+          "mape": 0.004,
+          "pearson_r": 0.8144949380419306
+        },
+        {
+          "class": "RBC",
+          "true_total": 3368,
+          "pred_total": 3257,
+          "mae": 0.7976190476190477,
+          "bias": -0.44047619047619047,
+          "exact": 0.5158730158730159,
+          "within_1": 0.8174603174603174,
+          "mape": 0.05829407674297743,
+          "pearson_r": 0.9635673923144809
+        },
+        {
+          "class": "Platelets",
+          "true_total": 112,
+          "pred_total": 107,
+          "mae": 0.03571428571428571,
+          "bias": -0.01984126984126984,
+          "exact": 0.9642857142857143,
+          "within_1": 1.0,
+          "mape": 0.08984375,
+          "pearson_r": 0.9801379577240413
+        }
+      ],
+      "confusion": {
+        "labels": [
+          "WBC",
+          "RBC",
+          "Platelets",
+          "background"
+        ],
+        "matrix": [
+          [
+            255,
+            1,
+            0,
+            1
+          ],
+          [
+            1,
+            3178,
+            0,
+            189
+          ],
+          [
+            0,
+            0,
+            105,
+            7
+          ],
+          [
+            0,
+            78,
+            2,
+            0
+          ]
+        ]
+      }
+    },
+    "test": {
+      "conf": 0.6286,
+      "iou": 0.5,
+      "per_class": [
+        {
+          "class": "WBC",
+          "tp": 131,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        {
+          "class": "RBC",
+          "tp": 1627,
+          "fp": 50,
+          "fn": 61,
+          "precision": 0.9701848539057841,
+          "recall": 0.9638625592417062,
+          "f1": 0.9670133729569094
+        },
+        {
+          "class": "Platelets",
+          "tp": 48,
+          "fp": 4,
+          "fn": 1,
+          "precision": 0.9230769230769231,
+          "recall": 0.9795918367346939,
+          "f1": 0.9504950495049506
+        }
+      ],
+      "counting": [
+        {
+          "class": "WBC",
+          "true_total": 131,
+          "pred_total": 131,
+          "mae": 0.0,
+          "bias": 0.0,
+          "exact": 1.0,
+          "within_1": 1.0,
+          "mape": 0.0,
+          "pearson_r": 1.0
+        },
+        {
+          "class": "RBC",
+          "true_total": 1688,
+          "pred_total": 1677,
+          "mae": 0.626984126984127,
+          "bias": -0.0873015873015873,
+          "exact": 0.5952380952380952,
+          "within_1": 0.873015873015873,
+          "mape": 0.04398518193194302,
+          "pearson_r": 0.9706062261132902
+        },
+        {
+          "class": "Platelets",
+          "true_total": 49,
+          "pred_total": 52,
+          "mae": 0.03968253968253968,
+          "bias": 0.023809523809523808,
+          "exact": 0.9603174603174603,
+          "within_1": 1.0,
+          "mape": 0.029411764705882353,
+          "pearson_r": 0.9685113431178499
+        }
+      ],
+      "confusion": {
+        "labels": [
+          "WBC",
+          "RBC",
+          "Platelets",
+          "background"
+        ],
+        "matrix": [
+          [
+            131,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            1627,
+            0,
+            61
+          ],
+          [
+            0,
+            0,
+            48,
+            1
+          ],
+          [
+            0,
+            50,
+            4,
+            0
+          ]
+        ]
+      }
+    }
+  }
+}

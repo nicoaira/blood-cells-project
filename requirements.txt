@@ -1,0 +1,10 @@
+# Local tooling: Kaggle orchestration, monitoring, dataset analysis and reports.
+# Training itself runs on Kaggle (see kaggle/train_kernel.py), so no PyTorch here.
+kaggle==2.2.5
+six==1.17.0            # required by kaggle 2.2.5 at runtime but not declared by it
+python-dotenv==1.2.4
+requests==2.34.2
+numpy==2.5.4
+matplotlib==3.11.2
+pillow==13.0.0
+pyyaml==6.0.3

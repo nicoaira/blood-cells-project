@@ -1,0 +1,47 @@
+# Training configuration: the single source of truth for a run.
+# scripts/kaggle_push_kernel.py embeds this file into the Kaggle kernel at push time.
+
+run_name: yolo26m-txlpbc
+
+kaggle:
+  dataset_slug: txl-pbc-blood-cells           # private Kaggle dataset holding data/TXL-PBC
+  dataset_title: TXL-PBC Blood Cells YOLO
+  kernel_slug: blood-cells-yolo26-training     # must equal the slugified kernel title
+  kernel_title: Blood Cells YOLO26 Training
+  accelerator: NvidiaTeslaT4                    # "GPU T4 x2"; training uses one GPU (see README)
+  ultralytics_version: "8.4.198"
+
+model: yolo26m.pt                               # COCO-pretrained YOLO26 medium (~20M params)
+
+train:
+  epochs: 100
+  patience: 30                                  # early stopping on validation fitness
+  imgsz: 640                                    # largest native resolution in the dataset is 640x480
+  batch: 16
+  workers: 4                                    # Kaggle GPU sessions have 4 vCPUs
+  optimizer: AdamW                              # Ultralytics' recommendation for <1k-image datasets
+  lr0: 0.001
+  lrf: 0.01
+  cos_lr: false
+  warmup_epochs: 3
+  weight_decay: 0.0005
+  seed: 42
+  deterministic: true
+  # Augmentation. Smears have no canonical orientation, so vertical flips are label-preserving.
+  # Rotation stays off: rotating axis-aligned boxes inflates them and adds label noise.
+  fliplr: 0.5
+  flipud: 0.5
+  mosaic: 1.0
+  close_mosaic: 10
+  mixup: 0.0
+  degrees: 0.0
+  scale: 0.5
+  translate: 0.1
+  hsv_h: 0.015
+  hsv_s: 0.7
+  hsv_v: 0.4
+
+evaluate:
+  splits: [val, test]
+  iou_match: 0.5            # IoU threshold for TP/FP/FN matching in counting and error analysis
+  predict_conf: 0.05        # lowest confidence stored with predictions (dashboard threshold slider)

@@ -1,0 +1,24 @@
+# Secrets
+.env
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Dataset (TXL-PBC images, labels, data.yaml): no licence ships with it, so it is not redistributed
+/data/
+
+# Build staging (Kaggle dataset/kernel bundles) and raw Kaggle downloads
+build/
+runs/
+
+# Local smoke-test outputs, scripts/predict.py outputs and Ultralytics auto-downloads
+smoke/
+predictions/
+/yolo*.pt
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
