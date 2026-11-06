@@ -1,0 +1,5 @@
+# Hugging Face Space dependencies. The Space installs gradio (sdk_version in README.md) and spaces itself.
+torch==2.13.0                           # newest PyTorch release that ZeroGPU supports
+torchvision==0.28.0                     # the release paired with torch 2.13.0
+ultralytics-opencv-headless==8.4.198    # the training release, with headless OpenCV (no libGL needed)
+pi-heif==1.4.0                          # HEIC/HEIF phone photos in the Image tab

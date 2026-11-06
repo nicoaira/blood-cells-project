@@ -3,6 +3,7 @@
 kaggle==2.2.5
 six==1.17.0            # required by kaggle 2.2.5 at runtime but not declared by it
 python-dotenv==1.2.4
+huggingface-hub==2.4.0  # deploys the web app (scripts/deploy_space.py)
 requests==2.34.2
 numpy==2.5.4
 matplotlib==3.11.2

@@ -1,0 +1,854 @@
+{
+  "run_name": "resnet18-bloodmnist-wbc",
+  "weights": "models/resnet18-bloodmnist-wbc.pt",
+  "weights_sha256": "b33b671e6173205214e505c0956780fc48beed045ba5a75e6fa77149b178d29f",
+  "config": {
+    "run_name": "resnet18-bloodmnist-wbc",
+    "data": "data/bloodmnist",
+    "architecture": "resnet18",
+    "pretrained": "IMAGENET1K_V1",
+    "classes": [
+      "basophil",
+      "eosinophil",
+      "immature_granulocytes",
+      "lymphocyte",
+      "monocyte",
+      "neutrophil"
+    ],
+    "excluded_classes": [
+      "erythroblast",
+      "platelet"
+    ],
+    "input_size": 128,
+    "train": {
+      "device": "cuda",
+      "epochs": 40,
+      "patience": 10,
+      "batch_size": 96,
+      "workers": 4,
+      "seed": 42,
+      "backbone_lr": 0.0003,
+      "head_lr": 0.001,
+      "weight_decay": 0.0001,
+      "label_smoothing": 0.05,
+      "warmup_epochs": 2,
+      "amp": true
+    },
+    "selection": "validation_macro_f1",
+    "deduplication": "quarantine_conflicting_labels_then_keep_test_before_val_before_train"
+  },
+  "environment": {
+    "torch": "2.14.1+cu126",
+    "torchvision": "0.29.1+cu126",
+    "gpu": "NVIDIA GeForce RTX 3070 Laptop GPU",
+    "cuda": "12.6",
+    "device": "cuda:0",
+    "amp": true,
+    "cudnn_deterministic": true
+  },
+  "best_epoch": 32,
+  "epochs_completed": 40,
+  "duration_seconds": 222.50548032700044,
+  "dataset_audit": {
+    "root": "/home/nicolas/Desktop/blood-cells-project/data/bloodmnist",
+    "native_size": 64,
+    "classes": [
+      "basophil",
+      "eosinophil",
+      "immature_granulocytes",
+      "lymphocyte",
+      "monocyte",
+      "neutrophil"
+    ],
+    "original_counts": {
+      "train": {
+        "basophil": 852,
+        "eosinophil": 2181,
+        "immature_granulocytes": 2026,
+        "lymphocyte": 849,
+        "monocyte": 993,
+        "neutrophil": 2330
+      },
+      "val": {
+        "basophil": 122,
+        "eosinophil": 312,
+        "immature_granulocytes": 290,
+        "lymphocyte": 122,
+        "monocyte": 143,
+        "neutrophil": 333
+      },
+      "test": {
+        "basophil": 244,
+        "eosinophil": 624,
+        "immature_granulocytes": 579,
+        "lymphocyte": 243,
+        "monocyte": 284,
+        "neutrophil": 666
+      }
+    },
+    "clean_counts": {
+      "test": {
+        "basophil": 244,
+        "eosinophil": 624,
+        "immature_granulocytes": 579,
+        "lymphocyte": 243,
+        "monocyte": 284,
+        "neutrophil": 665
+      },
+      "val": {
+        "basophil": 122,
+        "eosinophil": 311,
+        "immature_granulocytes": 290,
+        "lymphocyte": 122,
+        "monocyte": 143,
+        "neutrophil": 333
+      },
+      "train": {
+        "basophil": 846,
+        "eosinophil": 2175,
+        "immature_granulocytes": 2023,
+        "lymphocyte": 849,
+        "monocyte": 992,
+        "neutrophil": 2330
+      }
+    },
+    "duplicate_groups": 17,
+    "cross_split_duplicate_groups": 9,
+    "conflicting_label_groups": 1,
+    "excluded": [
+      {
+        "file": "train/basophil/train_11026.png",
+        "split": "train",
+        "label": 0,
+        "class": "basophil",
+        "sha256_pixels": "f62015c9e6c8ed06b6bbd80e6b7a36abfc72a6b6fc44558ad4564f5ed2eb356d",
+        "reason": "exact_duplicate"
+      },
+      {
+        "file": "train/basophil/train_11566.png",
+        "split": "train",
+        "label": 0,
+        "class": "basophil",
+        "sha256_pixels": "dfdaf0e13528316f9d38ccdef19879628d096151eb2cf89184a1d2beb34f547b",
+        "reason": "exact_duplicate"
+      },
+      {
+        "file": "train/basophil/train_04375.png",
+        "split": "train",
+        "label": 0,
+        "class": "basophil",
+        "sha256_pixels": "59b677ddb6adc3f7484b500efcd65134db91052acae8b13918612a9639633228",
+        "reason": "exact_duplicate"
+      },
+      {
+        "file": "train/basophil/train_04995.png",
+        "split": "train",
+        "label": 0,
+        "class": "basophil",
+        "sha256_pixels": "ee8fe412a49127887b3593186c7416078faaed02cb60239319f083ee455fc68d",
+        "reason": "exact_duplicate"
+      },
+      {
+        "file": "train/basophil/train_10505.png",
+        "split": "train",
+        "label": 0,
+        "class": "basophil",
+        "sha256_pixels": "ece315d5d14bbc699d4fb77f0ea0fbc95cc7f0e7efec97243a665322c2492ef0",
+        "reason": "exact_duplicate"
+      },
+      {
+        "file": "train/basophil/train_11443.png",
+        "split": "train",
+        "label": 0,
+        "class": "basophil",
+        "sha256_pixels": "859e0c7f64d4a69bef8eccb9161317a06897db2d8601bc0aaa3ae71e4ca934a1",
+        "reason": "exact_duplicate"
+      },
+      {
+        "file": "train/eosinophil/train_01018.png",
+        "split": "train",
+        "label": 1,
+        "class": "eosinophil",
+        "sha256_pixels": "710e26c5409520c22d5f218a403c9d1b01fa3e6b98625638403bdea5eb2373e9",
+        "reason": "conflicting_labels"
+      },
+      {
+        "file": "test/neutrophil/test_03126.png",
+        "split": "test",
+        "label": 5,
+        "class": "neutrophil",
+        "sha256_pixels": "710e26c5409520c22d5f218a403c9d1b01fa3e6b98625638403bdea5eb2373e9",
+        "reason": "conflicting_labels"
+      },
+      {
+        "file": "train/eosinophil/train_03440.png",
+        "split": "train",
+        "label": 1,
+        "class": "eosinophil",
+        "sha256_pixels": "7231f42f511135057ff5034b45b5cb446a3836ab40bf102e3900608f5a8f340e",
+        "reason": "exact_duplicate"
+      },
+      {
+        "file": "train/eosinophil/train_02835.png",
+        "split": "train",
+        "label": 1,
+        "class": "eosinophil",
+        "sha256_pixels": "3e675c0f32f6b8da92211122449cbee52d1511d3361305bbb39ad7df634e5ca5",
+        "reason": "exact_duplicate"
+      },
+      {
+        "file": "train/eosinophil/train_07646.png",
+        "split": "train",
+        "label": 1,
+        "class": "eosinophil",
+        "sha256_pixels": "db56039f58297273780f89010f2eb344aad946f17abe71448917feea7eb33d1b",
+        "reason": "exact_duplicate"
+      },
+      {
+        "file": "train/eosinophil/train_10734.png",
+        "split": "train",
+        "label": 1,
+        "class": "eosinophil",
+        "sha256_pixels": "c59bc023a4e5af8cde1ee6dc8a8023bb3ab2ac7816d7aee4e5147e18b81d64c2",
+        "reason": "exact_duplicate"
+      },
+      {
+        "file": "train/eosinophil/train_08530.png",
+        "split": "train",
+        "label": 1,
+        "class": "eosinophil",
+        "sha256_pixels": "641864df5de1fb4f5657c29820dd78a30f47d7a6eef1d75d91643e4f033415cb",
+        "reason": "exact_duplicate"
+      },
+      {
+        "file": "train/immature_granulocytes/train_04761.png",
+        "split": "train",
+        "label": 2,
+        "class": "immature_granulocytes",
+        "sha256_pixels": "fa7e7f16bc8eee1cfdc507fd25fad37997c19c02dacb5621529f5e3a46f1fc39",
+        "reason": "exact_duplicate"
+      },
+      {
+        "file": "train/immature_granulocytes/train_11575.png",
+        "split": "train",
+        "label": 2,
+        "class": "immature_granulocytes",
+        "sha256_pixels": "005a4cbd0e4267648a213032e0684af4888ea18b0fb82f33da085c8b4093e3c5",
+        "reason": "exact_duplicate"
+      },
+      {
+        "file": "train/immature_granulocytes/train_11856.png",
+        "split": "train",
+        "label": 2,
+        "class": "immature_granulocytes",
+        "sha256_pixels": "60abeb862bdd0dcb2841a9e5b0429ccb7593de2f18454dbc41d28ebeafa375ff",
+        "reason": "exact_duplicate"
+      },
+      {
+        "file": "train/monocyte/train_09084.png",
+        "split": "train",
+        "label": 4,
+        "class": "monocyte",
+        "sha256_pixels": "306ad1894e90abeebee1602dbd70ff2f521d73dfb57dc70373ec8ff75a3df15c",
+        "reason": "exact_duplicate"
+      },
+      {
+        "file": "val/eosinophil/val_01593.png",
+        "split": "val",
+        "label": 1,
+        "class": "eosinophil",
+        "sha256_pixels": "bde058872c359d18b76caf49af8c01374974136b87518c804cd500d8565782e8",
+        "reason": "exact_duplicate"
+      }
+    ],
+    "manifest_sha256": "f43da2eb57c7dfbebd4520eb2fa0119c78a1c198d8f023636d69676b213f3806",
+    "policy": "Quarantine conflicting labels; keep one exact copy, preferring test over val over train.",
+    "scope": "Exact pixel duplicates only; patient-level separation and near-duplicate overlap are unknown."
+  },
+  "validation": {
+    "accuracy": 0.9947009841029523,
+    "macro_f1": 0.995112372143204,
+    "balanced_accuracy": 0.9954082403488848,
+    "precision": [
+      1.0,
+      1.0,
+      0.9930795847750865,
+      0.991869918699187,
+      0.9930555555555556,
+      0.990990990990991
+    ],
+    "recall": [
+      0.9918032786885246,
+      1.0,
+      0.9896551724137931,
+      1.0,
+      1.0,
+      0.990990990990991
+    ],
+    "f1": [
+      0.9958847736625513,
+      1.0,
+      0.9913644214162349,
+      0.9959183673469388,
+      0.9965156794425087,
+      0.990990990990991
+    ],
+    "support": [
+      122,
+      311,
+      290,
+      122,
+      143,
+      333
+    ],
+    "confusion_matrix": [
+      [
+        121,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        311,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        287,
+        0,
+        0,
+        3
+      ],
+      [
+        0,
+        0,
+        0,
+        122,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        143,
+        0
+      ],
+      [
+        0,
+        0,
+        2,
+        0,
+        1,
+        330
+      ]
+    ],
+    "loss": 0.08382050671602721
+  },
+  "test": {
+    "accuracy": 0.9874952633573323,
+    "macro_f1": 0.9894992615787075,
+    "balanced_accuracy": 0.9889428703952857,
+    "precision": [
+      1.0,
+      1.0,
+      0.9790575916230366,
+      0.9918032786885246,
+      0.9964285714285714,
+      0.973293768545994
+    ],
+    "recall": [
+      1.0,
+      1.0,
+      0.9689119170984456,
+      0.9958847736625515,
+      0.9823943661971831,
+      0.9864661654135338
+    ],
+    "f1": [
+      1.0,
+      1.0,
+      0.9739583333333333,
+      0.9938398357289527,
+      0.9893617021276596,
+      0.9798356982823001
+    ],
+    "support": [
+      244,
+      624,
+      579,
+      243,
+      284,
+      665
+    ],
+    "confusion_matrix": [
+      [
+        244,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        624,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        561,
+        0,
+        0,
+        18
+      ],
+      [
+        0,
+        0,
+        0,
+        242,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        3,
+        2,
+        279,
+        0
+      ],
+      [
+        0,
+        0,
+        9,
+        0,
+        0,
+        656
+      ]
+    ],
+    "loss": 0.09857967099532705
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.5085593749308677,
+      "train_accuracy": 0.9151383613673358,
+      "val_loss": 0.12930548362529792,
+      "val_accuracy": 0.9765329295987888,
+      "val_macro_f1": 0.9753955956192025,
+      "seconds": 6.302694922999763,
+      "lr": 0.00015
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.3852752243961514,
+      "train_accuracy": 0.9652740097666848,
+      "val_loss": 0.10695691220603325,
+      "val_accuracy": 0.9825889477668432,
+      "val_macro_f1": 0.9829332413934396,
+      "seconds": 4.986634235000565,
+      "lr": 0.0003
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.34676413571646986,
+      "train_accuracy": 0.9761258817145958,
+      "val_loss": 0.09457945841717774,
+      "val_accuracy": 0.9848599545798638,
+      "val_macro_f1": 0.983818107592917,
+      "seconds": 5.549671718000354,
+      "lr": 0.0003
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.3418905521855688,
+      "train_accuracy": 0.9787303309820944,
+      "val_loss": 0.289608385777672,
+      "val_accuracy": 0.9197577592732779,
+      "val_macro_f1": 0.9134804833750096,
+      "seconds": 5.229365942999721,
+      "lr": 0.00029949279721149045
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.33618265188587665,
+      "train_accuracy": 0.9789473684210527,
+      "val_loss": 0.12459568829359564,
+      "val_accuracy": 0.9818319454958365,
+      "val_macro_f1": 0.9815745203935231,
+      "seconds": 5.26130073099921,
+      "lr": 0.0002979746535553042
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.33086094670947713,
+      "train_accuracy": 0.9813347802495931,
+      "val_loss": 0.11089058990825043,
+      "val_accuracy": 0.9818319454958365,
+      "val_macro_f1": 0.9838052433878289,
+      "seconds": 5.531495887999881,
+      "lr": 0.0002954559394919905
+    },
+    {
+      "epoch": 7,
+      "train_loss": 0.32748834386961134,
+      "train_accuracy": 0.9807921866521975,
+      "val_loss": 0.1245005027892281,
+      "val_accuracy": 0.9780469341408025,
+      "val_macro_f1": 0.9782327050642476,
+      "seconds": 5.340912386000127,
+      "lr": 0.00029195386039254417
+    },
+    {
+      "epoch": 8,
+      "train_loss": 0.33057084373333373,
+      "train_accuracy": 0.9803581117742811,
+      "val_loss": 0.1452574805722464,
+      "val_accuracy": 0.9697199091597275,
+      "val_macro_f1": 0.9674310473271567,
+      "seconds": 5.454094697999608,
+      "lr": 0.00028749233900827596
+    },
+    {
+      "epoch": 9,
+      "train_loss": 0.32618166458587317,
+      "train_accuracy": 0.9828540423223006,
+      "val_loss": 0.10608078799944408,
+      "val_accuracy": 0.9848599545798638,
+      "val_macro_f1": 0.9853974193331236,
+      "seconds": 5.425589411999681,
+      "lr": 0.0002821018520541636
+    },
+    {
+      "epoch": 10,
+      "train_loss": 0.30966116292477947,
+      "train_accuracy": 0.9884970157352143,
+      "val_loss": 0.09612080691710825,
+      "val_accuracy": 0.9871309613928841,
+      "val_macro_f1": 0.9877126868812582,
+      "seconds": 5.291422853999393,
+      "lr": 0.00027581922202198544
+    },
+    {
+      "epoch": 11,
+      "train_loss": 0.30991365778271557,
+      "train_accuracy": 0.9879544221378188,
+      "val_loss": 0.13923677939704474,
+      "val_accuracy": 0.9750189250567751,
+      "val_macro_f1": 0.9749292325412343,
+      "seconds": 5.3178494250005315,
+      "lr": 0.00026868736564536445
+    },
+    {
+      "epoch": 12,
+      "train_loss": 0.31516348209254325,
+      "train_accuracy": 0.987194791101465,
+      "val_loss": 0.10794434413866597,
+      "val_accuracy": 0.9841029523088569,
+      "val_macro_f1": 0.9849582845228273,
+      "seconds": 5.217629732000205,
+      "lr": 0.00026075500073496005
+    },
+    {
+      "epoch": 13,
+      "train_loss": 0.3131036685817085,
+      "train_accuracy": 0.9864351600651112,
+      "val_loss": 0.07836627599238266,
+      "val_accuracy": 0.9901589704769115,
+      "val_macro_f1": 0.9920557478532795,
+      "seconds": 5.129537619000075,
+      "lr": 0.00025207631338642256
+    },
+    {
+      "epoch": 14,
+      "train_loss": 0.31313398461657505,
+      "train_accuracy": 0.987194791101465,
+      "val_loss": 0.09455469031842886,
+      "val_accuracy": 0.9848599545798638,
+      "val_macro_f1": 0.9851932412654,
+      "seconds": 5.575949453999783,
+      "lr": 0.00024271058783441568
+    },
+    {
+      "epoch": 15,
+      "train_loss": 0.31184738798757256,
+      "train_accuracy": 0.9870862723819859,
+      "val_loss": 0.08625730504419296,
+      "val_accuracy": 0.9886449659348978,
+      "val_macro_f1": 0.9897644721537894,
+      "seconds": 5.262382607999825,
+      "lr": 0.00023272180148118044
+    },
+    {
+      "epoch": 16,
+      "train_loss": 0.3141885322846606,
+      "train_accuracy": 0.9873033098209442,
+      "val_loss": 0.09062826082978981,
+      "val_accuracy": 0.9894019682059046,
+      "val_macro_f1": 0.9911999847576749,
+      "seconds": 5.250404403000175,
+      "lr": 0.00022217818786600543
+    },
+    {
+      "epoch": 17,
+      "train_loss": 0.3075779127900004,
+      "train_accuracy": 0.9883884970157352,
+      "val_loss": 0.11279058348130855,
+      "val_accuracy": 0.9833459500378501,
+      "val_macro_f1": 0.9828257322675765,
+      "seconds": 5.24318202700033,
+      "lr": 0.00021115177056096597
+    },
+    {
+      "epoch": 18,
+      "train_loss": 0.30326167063032616,
+      "train_accuracy": 0.9899077590884428,
+      "val_loss": 0.08275243281235214,
+      "val_accuracy": 0.9909159727479182,
+      "val_macro_f1": 0.9921982400736716,
+      "seconds": 5.328439834999699,
+      "lr": 0.00019971787117689551
+    },
+    {
+      "epoch": 19,
+      "train_loss": 0.3000772399418521,
+      "train_accuracy": 0.9909929462832339,
+      "val_loss": 0.08349005260944005,
+      "val_accuracy": 0.987887963663891,
+      "val_macro_f1": 0.9887501078158332,
+      "seconds": 5.4493868170002315,
+      "lr": 0.00018795459484040867
+    },
+    {
+      "epoch": 20,
+      "train_loss": 0.3009994833707421,
+      "train_accuracy": 0.9909929462832339,
+      "val_loss": 0.09292261786392293,
+      "val_accuracy": 0.9863739591218774,
+      "val_macro_f1": 0.9880288579493658,
+      "seconds": 5.433630116999666,
+      "lr": 0.000175942296656689
+    },
+    {
+      "epoch": 21,
+      "train_loss": 0.29845121737025837,
+      "train_accuracy": 0.9929462832338578,
+      "val_loss": 0.09245226366965723,
+      "val_accuracy": 0.9901589704769115,
+      "val_macro_f1": 0.9911177367806322,
+      "seconds": 5.47686086900012,
+      "lr": 0.00016376303280264136
+    },
+    {
+      "epoch": 22,
+      "train_loss": 0.301795709068466,
+      "train_accuracy": 0.9913185024416712,
+      "val_loss": 0.0960995127629548,
+      "val_accuracy": 0.9871309613928841,
+      "val_macro_f1": 0.9876318526245386,
+      "seconds": 5.576930219000133,
+      "lr": 0.0001515
+    },
+    {
+      "epoch": 23,
+      "train_loss": 0.29573700182216683,
+      "train_accuracy": 0.9931633206728161,
+      "val_loss": 0.09012581235436577,
+      "val_accuracy": 0.9886449659348978,
+      "val_macro_f1": 0.9893103961979248,
+      "seconds": 5.39738774000034,
+      "lr": 0.00013923696719735865
+    },
+    {
+      "epoch": 24,
+      "train_loss": 0.29771603310295763,
+      "train_accuracy": 0.993054801953337,
+      "val_loss": 0.10617830679328219,
+      "val_accuracy": 0.9833459500378501,
+      "val_macro_f1": 0.9853825832797161,
+      "seconds": 5.389895844999955,
+      "lr": 0.00012705770334331097
+    },
+    {
+      "epoch": 25,
+      "train_loss": 0.29659384264935634,
+      "train_accuracy": 0.9938144329896907,
+      "val_loss": 0.08991181967747564,
+      "val_accuracy": 0.9894019682059046,
+      "val_macro_f1": 0.9896029154823888,
+      "seconds": 5.453921012000137,
+      "lr": 0.00011504540515959132
+    },
+    {
+      "epoch": 26,
+      "train_loss": 0.2919500503990227,
+      "train_accuracy": 0.9958762886597938,
+      "val_loss": 0.08689465692420514,
+      "val_accuracy": 0.991672975018925,
+      "val_macro_f1": 0.9922038265058041,
+      "seconds": 5.365609770000447,
+      "lr": 0.0001032821288231045
+    },
+    {
+      "epoch": 27,
+      "train_loss": 0.29338177656648734,
+      "train_accuracy": 0.9942485078676072,
+      "val_loss": 0.10558834841177375,
+      "val_accuracy": 0.9848599545798638,
+      "val_macro_f1": 0.9865287990080578,
+      "seconds": 5.438370730000315,
+      "lr": 9.184822943903406e-05
+    },
+    {
+      "epoch": 28,
+      "train_loss": 0.28981844932568573,
+      "train_accuracy": 0.996093326098752,
+      "val_loss": 0.0885214332736504,
+      "val_accuracy": 0.9924299772899319,
+      "val_macro_f1": 0.9926369550984866,
+      "seconds": 5.475472002999595,
+      "lr": 8.082181213399458e-05
+    },
+    {
+      "epoch": 29,
+      "train_loss": 0.29035945079343445,
+      "train_accuracy": 0.9952251763429192,
+      "val_loss": 0.08967582823921567,
+      "val_accuracy": 0.991672975018925,
+      "val_macro_f1": 0.9925362075452667,
+      "seconds": 5.354842056000052,
+      "lr": 7.027819851881964e-05
+    },
+    {
+      "epoch": 30,
+      "train_loss": 0.28892173881900746,
+      "train_accuracy": 0.997069994574064,
+      "val_loss": 0.08577560205336866,
+      "val_accuracy": 0.9931869795609387,
+      "val_macro_f1": 0.993605513430731,
+      "seconds": 5.391097824000099,
+      "lr": 6.028941216558432e-05
+    },
+    {
+      "epoch": 31,
+      "train_loss": 0.28937171325693944,
+      "train_accuracy": 0.9962018448182312,
+      "val_loss": 0.09186883734357258,
+      "val_accuracy": 0.9924299772899319,
+      "val_macro_f1": 0.9930695882237347,
+      "seconds": 5.322727115999442,
+      "lr": 5.092368661357748e-05
+    },
+    {
+      "epoch": 32,
+      "train_loss": 0.29052914267509966,
+      "train_accuracy": 0.995984807379273,
+      "val_loss": 0.08380343533211997,
+      "val_accuracy": 0.9947009841029523,
+      "val_macro_f1": 0.995112372143204,
+      "seconds": 5.15980685500017,
+      "lr": 4.2244999265039953e-05
+    },
+    {
+      "epoch": 33,
+      "train_loss": 0.28721170105238164,
+      "train_accuracy": 0.9978296256104178,
+      "val_loss": 0.08375459219090059,
+      "val_accuracy": 0.9924299772899319,
+      "val_macro_f1": 0.993071512597481,
+      "seconds": 5.33720599299977,
+      "lr": 3.4312634354635565e-05
+    },
+    {
+      "epoch": 34,
+      "train_loss": 0.2879633795969265,
+      "train_accuracy": 0.9965274009766685,
+      "val_loss": 0.08527468407722606,
+      "val_accuracy": 0.991672975018925,
+      "val_macro_f1": 0.9925275471821662,
+      "seconds": 5.196192733000316,
+      "lr": 2.7180777978014507e-05
+    },
+    {
+      "epoch": 35,
+      "train_loss": 0.2873003118399104,
+      "train_accuracy": 0.9973955507325013,
+      "val_loss": 0.08368973367418149,
+      "val_accuracy": 0.9931869795609387,
+      "val_macro_f1": 0.993607317234888,
+      "seconds": 5.3166488480001135,
+      "lr": 2.0898147945836387e-05
+    },
+    {
+      "epoch": 36,
+      "train_loss": 0.28683301565508706,
+      "train_accuracy": 0.9976125881714596,
+      "val_loss": 0.08619815846630158,
+      "val_accuracy": 0.9924299772899319,
+      "val_macro_f1": 0.9930675725018611,
+      "seconds": 5.289657006000198,
+      "lr": 1.550766099172396e-05
+    },
+    {
+      "epoch": 37,
+      "train_loss": 0.28625389193298373,
+      "train_accuracy": 0.9981551817688551,
+      "val_loss": 0.08648048649224073,
+      "val_accuracy": 0.9924299772899319,
+      "val_macro_f1": 0.993071512597481,
+      "seconds": 5.2494256230002065,
+      "lr": 1.1046139607455756e-05
+    },
+    {
+      "epoch": 38,
+      "train_loss": 0.28762235570329076,
+      "train_accuracy": 0.9969614758545849,
+      "val_loss": 0.08573412263510716,
+      "val_accuracy": 0.9931869795609387,
+      "val_macro_f1": 0.993607317234888,
+      "seconds": 5.297629573999984,
+      "lr": 7.544060508009439e-06
+    },
+    {
+      "epoch": 39,
+      "train_loss": 0.2882965711879782,
+      "train_accuracy": 0.9971785132935431,
+      "val_loss": 0.0872635938830668,
+      "val_accuracy": 0.991672975018925,
+      "val_macro_f1": 0.9925275471821662,
+      "seconds": 5.331122588000653,
+      "lr": 5.025346444695735e-06
+    },
+    {
+      "epoch": 40,
+      "train_loss": 0.2868732040302299,
+      "train_accuracy": 0.9965274009766685,
+      "val_loss": 0.08763750929619488,
+      "val_accuracy": 0.9931869795609387,
+      "val_macro_f1": 0.993607317234888,
+      "seconds": 5.138121781000336,
+      "lr": 3.5072027885095276e-06
+    }
+  ],
+  "limits": [
+    "Six-class classifier for cropped WBCs, not a whole-image detector.",
+    "Native input data is 64x64; resizing to 128x128 does not restore detail.",
+    "Exact duplicate overlap removed; patient-level split and near-duplicate overlap are unknown.",
+    "Accuracy on personal microscope WBC crops has not been measured.",
+    "Immature granulocytes form one dataset class; their individual maturation stages are not separated.",
+    "Softmax scores are not calibrated clinical probabilities; non-WBC or unfamiliar cells are forced into one of six classes."
+  ]
+}

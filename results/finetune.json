@@ -1,0 +1,288 @@
+{
+  "base": {
+    "weights": "models/yolo26m-txlpbc.pt",
+    "my_val": {
+      "overall": {
+        "precision": 0.6566492010210787,
+        "recall": 0.7183792815371763,
+        "mAP50": 0.7736713250146016,
+        "mAP75": 0.6812409024235603,
+        "mAP50-95": 0.6833963365148578,
+        "fitness": 0.6833963365148578
+      },
+      "per_class": [
+        {
+          "class": "WBC",
+          "images": 6,
+          "instances": 8,
+          "precision": 0.1764,
+          "recall": 1.0,
+          "f1": 0.29989,
+          "mAP50": 0.78833,
+          "mAP75": 0.78833,
+          "mAP50-95": 0.78833
+        },
+        {
+          "class": "RBC",
+          "images": 21,
+          "instances": 570,
+          "precision": 0.95334,
+          "recall": 0.67895,
+          "f1": 0.79308,
+          "mAP50": 0.83233,
+          "mAP75": 0.72359,
+          "mAP50-95": 0.71565
+        },
+        {
+          "class": "Platelets",
+          "images": 16,
+          "instances": 42,
+          "precision": 0.84021,
+          "recall": 0.47619,
+          "f1": 0.60787,
+          "mAP50": 0.70035,
+          "mAP75": 0.5318,
+          "mAP50-95": 0.54621
+        }
+      ],
+      "speed_ms": {
+        "preprocess": 0.509,
+        "inference": 13.357,
+        "loss": 0.001,
+        "postprocess": 0.556
+      },
+      "f1_optimal_conf": 0.3153
+    },
+    "my_val_counts": {
+      "conf": 0.3153,
+      "tiles": 21,
+      "WBC": {
+        "labeled": 8,
+        "mae": 1.238,
+        "bias": 1.238,
+        "total_error_pct": 325.0
+      },
+      "RBC": {
+        "labeled": 570,
+        "mae": 6.238,
+        "bias": -6.238,
+        "total_error_pct": -23.0
+      },
+      "Platelets": {
+        "labeled": 42,
+        "mae": 1.0,
+        "bias": -0.905,
+        "total_error_pct": -45.2
+      }
+    },
+    "txl_test": {
+      "overall": {
+        "precision": 0.9745850725949502,
+        "recall": 0.9758514427605696,
+        "mAP50": 0.9929366474889347,
+        "mAP75": 0.9639249337161643,
+        "mAP50-95": 0.878561501274566,
+        "fitness": 0.878561501274566
+      },
+      "per_class": [
+        {
+          "class": "WBC",
+          "images": 126,
+          "instances": 131,
+          "precision": 0.99492,
+          "recall": 1.0,
+          "f1": 0.99746,
+          "mAP50": 0.995,
+          "mAP75": 0.995,
+          "mAP50-95": 0.8969
+        },
+        {
+          "class": "RBC",
+          "images": 126,
+          "instances": 1688,
+          "precision": 0.97502,
+          "recall": 0.94796,
+          "f1": 0.9613,
+          "mAP50": 0.99112,
+          "mAP75": 0.96638,
+          "mAP50-95": 0.90983
+        },
+        {
+          "class": "Platelets",
+          "images": 34,
+          "instances": 49,
+          "precision": 0.95381,
+          "recall": 0.97959,
+          "f1": 0.96653,
+          "mAP50": 0.99269,
+          "mAP75": 0.9304,
+          "mAP50-95": 0.82895
+        }
+      ],
+      "speed_ms": {
+        "preprocess": 0.475,
+        "inference": 12.594,
+        "loss": 0.001,
+        "postprocess": 0.504
+      },
+      "f1_optimal_conf": 0.7077
+    }
+  },
+  "fine_tuned": {
+    "weights": "models/yolo26m-txlpbc-mine.pt",
+    "my_val": {
+      "overall": {
+        "precision": 0.877440115472695,
+        "recall": 0.8440231473348015,
+        "mAP50": 0.9281058783158057,
+        "mAP75": 0.7822979719754501,
+        "mAP50-95": 0.7758708942357554,
+        "fitness": 0.7758708942357554
+      },
+      "per_class": [
+        {
+          "class": "WBC",
+          "images": 6,
+          "instances": 8,
+          "precision": 0.81372,
+          "recall": 0.875,
+          "f1": 0.84325,
+          "mAP50": 0.94602,
+          "mAP75": 0.94602,
+          "mAP50-95": 0.94602
+        },
+        {
+          "class": "RBC",
+          "images": 21,
+          "instances": 570,
+          "precision": 0.9065,
+          "recall": 0.91579,
+          "f1": 0.91112,
+          "mAP50": 0.96196,
+          "mAP75": 0.86262,
+          "mAP50-95": 0.79414
+        },
+        {
+          "class": "Platelets",
+          "images": 16,
+          "instances": 42,
+          "precision": 0.9121,
+          "recall": 0.74128,
+          "f1": 0.81787,
+          "mAP50": 0.87634,
+          "mAP75": 0.53825,
+          "mAP50-95": 0.58745
+        }
+      ],
+      "speed_ms": {
+        "preprocess": 0.44,
+        "inference": 12.793,
+        "loss": 0.001,
+        "postprocess": 0.588
+      },
+      "f1_optimal_conf": 0.4214
+    },
+    "my_val_counts": {
+      "conf": 0.4214,
+      "tiles": 21,
+      "WBC": {
+        "labeled": 8,
+        "mae": 0.095,
+        "bias": 0.0,
+        "total_error_pct": 0.0
+      },
+      "RBC": {
+        "labeled": 570,
+        "mae": 3.095,
+        "bias": 2.905,
+        "total_error_pct": 10.7
+      },
+      "Platelets": {
+        "labeled": 42,
+        "mae": 0.429,
+        "bias": -0.143,
+        "total_error_pct": -7.1
+      }
+    },
+    "txl_test": {
+      "overall": {
+        "precision": 0.9730570334373173,
+        "recall": 0.9848667834623641,
+        "mAP50": 0.9911627854522306,
+        "mAP75": 0.9737427664019359,
+        "mAP50-95": 0.8755186290304596,
+        "fitness": 0.8755186290304596
+      },
+      "per_class": [
+        {
+          "class": "WBC",
+          "images": 126,
+          "instances": 131,
+          "precision": 0.99229,
+          "recall": 1.0,
+          "f1": 0.99613,
+          "mAP50": 0.995,
+          "mAP75": 0.99385,
+          "mAP50-95": 0.88632
+        },
+        {
+          "class": "RBC",
+          "images": 126,
+          "instances": 1688,
+          "precision": 0.9699,
+          "recall": 0.9546,
+          "f1": 0.96219,
+          "mAP50": 0.9908,
+          "mAP75": 0.96273,
+          "mAP50-95": 0.89881
+        },
+        {
+          "class": "Platelets",
+          "images": 34,
+          "instances": 49,
+          "precision": 0.95698,
+          "recall": 1.0,
+          "f1": 0.97802,
+          "mAP50": 0.98769,
+          "mAP75": 0.96464,
+          "mAP50-95": 0.84143
+        }
+      ],
+      "speed_ms": {
+        "preprocess": 0.436,
+        "inference": 12.569,
+        "loss": 0.001,
+        "postprocess": 0.483
+      },
+      "f1_optimal_conf": 0.6146
+    }
+  },
+  "train": {
+    "epochs": 60,
+    "patience": 20,
+    "imgsz": 640,
+    "batch": 8,
+    "workers": 8,
+    "optimizer": "AdamW",
+    "lr0": 0.0005,
+    "lrf": 0.01,
+    "cos_lr": false,
+    "warmup_epochs": 1,
+    "weight_decay": 0.0005,
+    "seed": 42,
+    "deterministic": true,
+    "fliplr": 0.5,
+    "flipud": 0.5,
+    "mosaic": 1.0,
+    "close_mosaic": 10,
+    "mixup": 0.0,
+    "degrees": 0.0,
+    "scale": 0.5,
+    "translate": 0.1,
+    "hsv_h": 0.015,
+    "hsv_s": 0.7,
+    "hsv_v": 0.4
+  },
+  "mine_repeat": 4,
+  "run_dir": "runs/finetune/yolo26m-txlpbc-mine"
+}

@@ -1,3 +1,9 @@
-# Optional: local inference (scripts/predict.py) and the CPU smoke test (make smoke).
+# Optional: local inference (scripts/predict.py), the CPU smoke test (make smoke) and the web app (make app).
 # Install PyTorch first (CPU wheels: --index-url https://download.pytorch.org/whl/cpu), or a CUDA build for a local GPU.
 ultralytics==8.4.198
+gradio==6.31.0         # keep equal to sdk_version in space/README.md, which the Space runs
+spaces==0.51.3         # ZeroGPU decorator; does nothing off Hugging Face
+onnx==1.23.2           # ONNX export of the model for the web app's live camera tab
+onnxslim==0.1.98       # simplifies that export
+onnxruntime==1.30.0    # Ultralytics checks the simplified export with it
+pi-heif==1.4.0         # HEIC/HEIF phone photos in the web app (space/requirements.txt)

@@ -41,6 +41,18 @@ train:
   hsv_s: 0.7
   hsv_v: 0.4
 
+finetune:                     # scripts/finetune.py: adapt the trained model to my own smears (data/UIC_microscope_photos), locally
+  run_name: yolo26m-txlpbc-mine
+  base: models/yolo26m-txlpbc.pt
+  mine_repeat: 4              # my tiles repeat in each epoch, so they are about a third of the training images
+  train:                      # overrides of `train` above
+    epochs: 60
+    patience: 20
+    batch: 8                  # fits an 8 GB laptop GPU
+    workers: 8
+    lr0: 0.0005               # half the first training's: the model only needs adapting
+    warmup_epochs: 1
+
 evaluate:
   splits: [val, test]
   iou_match: 0.5            # IoU threshold for TP/FP/FN matching in counting and error analysis

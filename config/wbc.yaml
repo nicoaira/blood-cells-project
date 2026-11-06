@@ -1,0 +1,28 @@
+run_name: resnet18-bloodmnist-wbc
+data: data/bloodmnist
+architecture: resnet18
+pretrained: IMAGENET1K_V1
+classes:
+  - basophil
+  - eosinophil
+  - immature_granulocytes
+  - lymphocyte
+  - monocyte
+  - neutrophil
+excluded_classes: [erythroblast, platelet]
+input_size: 128               # resize native 64px crops for the pretrained network; no extra image detail
+train:
+  device: cuda
+  epochs: 40
+  patience: 10
+  batch_size: 96
+  workers: 4
+  seed: 42
+  backbone_lr: 0.0003
+  head_lr: 0.001
+  weight_decay: 0.0001
+  label_smoothing: 0.05
+  warmup_epochs: 2
+  amp: true
+selection: validation_macro_f1
+deduplication: quarantine_conflicting_labels_then_keep_test_before_val_before_train
